@@ -11,5 +11,15 @@
 
     <artifactId>api</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.brecucoder.ordero</groupId>
+            <artifactId>domain</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.brecucoder.ordero</groupId>
+            <artifactId>services</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>
