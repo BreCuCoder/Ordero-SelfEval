@@ -9,7 +9,7 @@ import org.springframework.context.ApplicationContext;
 public class OrderApplication {
 
     public static void main(String[] args) {
-        ApplicationContext ctx = SpringApplication.run(OrderApplication.class, args);
+        SpringApplication.run(OrderApplication.class, args);
     }
 
 }
