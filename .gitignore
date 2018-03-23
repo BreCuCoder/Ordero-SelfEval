@@ -12,6 +12,7 @@ out
 
 *.jar
 *.original
+*.log
 
 */target/*
 
