@@ -3,6 +3,8 @@ package com.brecucoder.ordero.api.item;
 import com.brecucoder.ordero.domain.item.Item;
 import org.springframework.stereotype.Component;
 
+import static com.brecucoder.ordero.domain.item.Item.ItemBuilder.item;
+
 @Component
 public class ItemMapper {
 
@@ -16,4 +18,11 @@ public class ItemMapper {
     return itemDto;
     }
 
+    public static Item toDomain(ItemDto itemDto) {
+        return item()
+                .withId(itemDto.getId())
+                .withName(itemDto.getName())
+                .withDescription(itemDto.getDescription())
+                .build();
+    }
 }

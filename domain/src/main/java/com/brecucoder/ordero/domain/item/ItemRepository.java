@@ -2,7 +2,6 @@ package com.brecucoder.ordero.domain.item;
 
 import org.springframework.stereotype.Component;
 
-import java.math.BigDecimal;
 import java.util.*;
 
 @Component
@@ -12,8 +11,8 @@ public class ItemRepository {
 
     public ItemRepository() {
         items = new HashMap<>();
-        storeItem(new Item("SomeItem", "someItemDescription", BigDecimal.valueOf(50)));
-        storeItem(new Item("SomeItem2", "someOtherItemDescription", BigDecimal.valueOf(99)));
+        storeItem(new Item("SomeItem", "someItemDescription", 50.00, 100));
+        storeItem(new Item("SomeItem2", "someOtherItemDescription", 99.99, 200));
     }
 
     public List<Item> getItems() {

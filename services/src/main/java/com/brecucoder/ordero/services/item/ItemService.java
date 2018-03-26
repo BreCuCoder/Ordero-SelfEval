@@ -2,8 +2,12 @@ package com.brecucoder.ordero.services.item;
 
 import com.brecucoder.ordero.domain.item.Item;
 import com.brecucoder.ordero.domain.item.ItemRepository;
+import com.brecucoder.ordero.services.exceptions.IllegalFieldFoundException;
+import com.brecucoder.ordero.services.exceptions.IllegalFieldFoundException.CrudAction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import static com.brecucoder.ordero.services.exceptions.IllegalFieldFoundException.CrudAction.CREATE;
 
 import java.util.List;
 
@@ -25,9 +29,20 @@ public class ItemService {
         return itemRepository.getItem(id);
     }
 
+    public Item createItem(Item item) {
+        assertItemIdIsNotPresent(item, CREATE);
+        return itemRepository.storeItem(item);
+    }
+
     private void assertItemIsPresent(Item queriedItemById) {
         if (queriedItemById == null) {
-            throw new IllegalArgumentException("Not found!") ;
+            throw new IllegalArgumentException("No such item!") ;
+        }
+    }
+
+    private void assertItemIdIsNotPresent(Item providedItem, CrudAction action) {
+        if (providedItem.getId() != null) {
+            throw new IllegalFieldFoundException("ID", Item.class.getSimpleName(), action);
         }
     }
 

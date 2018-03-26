@@ -3,19 +3,23 @@ package com.brecucoder.ordero.domain.item;
 import java.math.BigDecimal;
 
 public class Item {
-    private int id;
+    private Integer id;
     private String name;
     private String description;
-    private BigDecimal price;
+    private double price;
     private int stock;
 
-    public Item(String name, String description, BigDecimal price) {
+    private Item() {
+    }
+
+    public Item(String name, String description, double price, int stock) {
         this.name = name;
         this.description = description;
         this.price = price;
+        this.stock = stock;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -39,11 +43,11 @@ public class Item {
         this.description = description;
     }
 
-    public BigDecimal getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
@@ -53,5 +57,56 @@ public class Item {
 
     public void setStock(int stock) {
         this.stock = stock;
+    }
+
+    public static class ItemBuilder {
+        private Integer id;
+        private String name;
+        private String description;
+        private double price;
+        private int stock;
+
+        private ItemBuilder(){}
+
+        public static ItemBuilder item() {
+            return new ItemBuilder();
+        }
+
+        public Item build() {
+            Item item = new Item();
+            item.setId(id);
+            item.setName(name);
+            item.setDescription(description);
+            item.setPrice(price);
+            item.setStock(stock);
+            return item;
+        }
+
+        public ItemBuilder withId(Integer id) {
+            this.id = id;
+            return this;
+        }
+
+        public ItemBuilder withName(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public ItemBuilder withDescription(String description) {
+            this.description = description;
+            return this;
+        }
+
+        public ItemBuilder withPrice(double price) {
+            this.price = price;
+            return this;
+        }
+
+        public ItemBuilder withStock(int stock) {
+            this.stock = stock;
+            return this;
+        }
+
+
     }
 }
