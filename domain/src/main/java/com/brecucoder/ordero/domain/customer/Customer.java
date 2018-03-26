@@ -11,6 +11,7 @@ public class Customer {
     private String city;
     private String country;
     private String phoneNumber;
+    private boolean isActive;
 
     public Customer(int id, String firstName, String lastName, String email, String address, String phoneNumber) {
         this.id = id;
@@ -22,6 +23,7 @@ public class Customer {
         this.city = city;
         this.country = country;
         this.phoneNumber = phoneNumber;
+        this.isActive = true;
     }
 
     public int getId() {
@@ -94,6 +96,14 @@ public class Customer {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
     }
 }
 

@@ -1,19 +1,13 @@
-package com.brecucoder.ordero.domain.item;
+package com.brecucoder.ordero.api.item;
 
 import java.math.BigDecimal;
 
-public class Item {
+public class ItemDto {
     private int id;
     private String name;
     private String description;
     private BigDecimal price;
     private int stock;
-
-    public Item(String name, String description, BigDecimal price) {
-        this.name = name;
-        this.description = description;
-        this.price = price;
-    }
 
     public int getId() {
         return id;
