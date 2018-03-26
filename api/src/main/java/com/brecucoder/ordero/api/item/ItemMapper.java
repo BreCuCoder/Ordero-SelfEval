@@ -23,6 +23,8 @@ public class ItemMapper {
                 .withId(itemDto.getId())
                 .withName(itemDto.getName())
                 .withDescription(itemDto.getDescription())
+                .withPrice(itemDto.getPrice())
+                .withStock(itemDto.getStock())
                 .build();
     }
 }

@@ -23,7 +23,6 @@ public class ItemRepository {
         return items.get(id);
     }
 
-
     public Item storeItem(Item item) {
         item.setId(dataBaseIndex++);
         items.put(item.getId(), item);
