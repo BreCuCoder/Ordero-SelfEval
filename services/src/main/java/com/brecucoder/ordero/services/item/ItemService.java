@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import static com.brecucoder.ordero.services.exceptions.IllegalFieldFoundException.CrudAction.CREATE;
+import static com.brecucoder.ordero.services.exceptions.IllegalFieldFoundException.CrudAction.UPDATE;
 
 import java.util.List;
 
@@ -32,6 +33,13 @@ public class ItemService {
     public Item createItem(Item item) {
         assertItemIdIsNotPresent(item, CREATE);
         return itemRepository.storeItem(item);
+    }
+
+    public Item updateItem(Integer id, Item updatedItem) {
+        assertItemIdIsNotPresent(updatedItem, UPDATE);
+        assertItemIsPresent(itemRepository.getItem(id));
+        updatedItem.setId(id);
+        return itemRepository.updateItem(updatedItem);
     }
 
     private void assertItemIsPresent(Item queriedItemById) {

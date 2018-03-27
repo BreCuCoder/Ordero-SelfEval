@@ -29,4 +29,9 @@ public class ItemRepository {
         return item;
     }
 
+    public Item updateItem(Item updatedItem) {
+        items.put(updatedItem.getId(), updatedItem);
+        return updatedItem;
+    }
+
 }
